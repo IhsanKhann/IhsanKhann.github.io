@@ -169,143 +169,163 @@
     <p class="filter-count" id="count" aria-live="polite"></p>
 
     <div class="cases">
+
       <article class="case r" data-track="platform ai product">
-        <div class="case-meta">
-          <p class="case-k">OfferBerries</p>
-          <dl>
-            <div><dt>Scope</dt><dd>Architecture and build, sole engineer</dd></div>
-            <div><dt>Period</dt><dd>Aug 2025 — present</dd></div>
-            <div><dt>Stack</dt><dd>Laravel · Node · React · MySQL · MongoDB · Redis · Docker</dd></div>
-          </dl>
-        </div>
+        <header class="case-top">
+          <div>
+            <p class="case-k">OfferBerries</p>
+            <p class="case-sub">Aug&nbsp;2025 &mdash; present · architecture and build, sole engineer</p>
+          </div>
+          <p class="case-tags">Platform · AI · Product</p>
+        </header>
         <div class="case-body">
           <h3>A platform of five separately sellable products</h3>
           <p>A multi-vendor marketplace, a multi-tenant ERP, a config-driven console engine, a
           messaging service and shipment tracking. No product is a module of another; they
           compose so one organisation runs its commerce and its operations on the same party
           identity, event stream and financial facts.</p>
-          <p>The interesting problem was never a feature. It was where the boundary goes — what
-          is a product, what is a shared primitive, and what each service may assume about the
-          others. So the boundary is a test, not a convention: the dependency direction and the
-          tenant seam are asserted by suites that walk the real router, including roughly
-          <span class="n">48</span> that prove one customer's data cannot be read by another.</p>
-          <ul class="outcome">
-            <li><span class="n">36</span> engines over <span class="n">16</span> shared kernel namespaces</li>
-            <li><span class="n">244</span> tables · <span class="n">66</span> declared integration events</li>
-            <li>Load tested at <span class="n">300</span> concurrent users with zero HTTP errors</li>
-          </ul>
+          <p>The interesting problem was never a feature. It was where the boundary goes &mdash;
+          what is a product, what is a shared primitive, and what each service may assume about
+          the others. So the boundary is a test, not a convention: the dependency direction and
+          the tenant seam are asserted by suites that walk the real router, including roughly
+          48 that prove one customer&rsquo;s data cannot be read by another.</p>
         </div>
+        <div class="case-figs">
+          <div><b>36</b><span>engines over 16 shared kernel namespaces</span></div>
+          <div><b>244</b><span>tables · 66 declared integration events</span></div>
+          <div><b>300</b><span>concurrent users, zero HTTP errors</span></div>
+        </div>
+        <footer class="case-foot">
+          <p class="case-stack">Laravel · Node · React · MySQL · MongoDB · Redis · Docker</p>
+        </footer>
       </article>
 
       <article class="case r" data-track="platform">
-        <div class="case-meta">
-          <p class="case-k">universal-data-onboarder</p>
-          <dl>
-            <div><dt>Scope</dt><dd>Sole author · MIT licensed</dd></div>
-            <div><dt>Stack</dt><dd>Node · Express · MongoDB · BullMQ · React · Cloud Run</dd></div>
-            <div><dt>Links</dt><dd><a href="https://github.com/IhsanKhann/universal-data-onboarder">Source</a> · <a href="https://ihsankhann.github.io/universal-data-onboarder/">Docs</a></dd></div>
-          </dl>
-        </div>
+        <header class="case-top">
+          <div>
+            <p class="case-k">universal-data-onboarder</p>
+            <p class="case-sub">Sole author · MIT licensed</p>
+          </div>
+          <p class="case-tags">Platform</p>
+        </header>
         <div class="case-body">
-          <h3>Getting a customer's data out of the system they are leaving</h3>
-          <p>&ldquo;Can you get our data in&rdquo; decides more enterprise deals than any feature, so
-          the onboarding pipeline became its own product: parse, map, validate, guardrail,
-          commit — for CSV, JSON, XLSX and raw SQL dumps.</p>
+          <h3>Getting a customer&rsquo;s data out of the system they are leaving</h3>
+          <p>&ldquo;Can you get our data in&rdquo; decides more enterprise deals than any feature,
+          so the onboarding pipeline became its own product: parse, map, validate, guardrail,
+          commit &mdash; for CSV, JSON, XLSX and raw SQL dumps.</p>
           <p>Every external dependency is an injected adapter, so the same engine runs on
           MongoDB or SQLite, a cloud queue or memory, local disk or object storage, single- or
-          multi-tenant, with no change to the pipeline. Files are read as a stream, so memory
-          use follows row width rather than file size — a 2&nbsp;GB upload costs no more memory
-          than a small one. Commits deduplicate on a natural key and resume where they stopped.</p>
-          <ul class="outcome">
-            <li>Extracted from the platform, then adopted back by it as a dependency</li>
-            <li>Published standalone with its own documentation site</li>
-          </ul>
+          multi-tenant, with no change to the pipeline. Files are read as a stream, so memory use
+          follows row width rather than file size. Commits deduplicate on a natural key and
+          resume where they stopped.</p>
         </div>
+        <div class="case-figs">
+          <div><b>4</b><span>input formats, one pipeline</span></div>
+          <div><b>0</b><span>database, queue or cloud vendors in the core</span></div>
+          <div><b>2&nbsp;GB</b><span>upload costs no more memory than a small one</span></div>
+        </div>
+        <footer class="case-foot">
+          <p class="case-stack">Node · Express · MongoDB · BullMQ · React · Cloud Run</p>
+          <p class="case-links">
+            <a href="https://github.com/IhsanKhann/universal-data-onboarder">Source</a>
+            <a href="https://ihsankhann.github.io/universal-data-onboarder/">Documentation</a>
+          </p>
+        </footer>
       </article>
 
       <article class="case r" data-track="ai platform">
-        <div class="case-meta">
-          <p class="case-k">Agent layer</p>
-          <dl>
-            <div><dt>Scope</dt><dd>Design and build, sole engineer</dd></div>
-            <div><dt>Stack</dt><dd>Model Context Protocol · PHP · TypeScript · multi-provider</dd></div>
-            <div><dt>Size</dt><dd>~210 files · 129 tests</dd></div>
-          </dl>
-        </div>
+        <header class="case-top">
+          <div>
+            <p class="case-k">Agent layer</p>
+            <p class="case-sub">Design and build, sole engineer</p>
+          </div>
+          <p class="case-tags">AI &amp; agents · Platform</p>
+        </header>
         <div class="case-body">
           <h3>One tool surface, operated by a person or an agent</h3>
-          <p>An MCP server built from the protocol up — envelope, dispatcher, tool generator,
-          tool surface, commit guard. Pages declare what they show and what they let you do,
-          once, and both the in-app assistant and an external agent read that same declaration.
-          Agents never click screen elements; they call tools that were declared in advance.</p>
+          <p>An MCP server built from the protocol up &mdash; envelope, dispatcher, tool
+          generator, tool surface, commit guard. Pages declare what they show and what they let
+          you do, once, and both the in-app assistant and an external agent read that same
+          declaration. Agents never click screen elements; they call tools that were declared in
+          advance.</p>
           <p>Releases are gated on measurement rather than demonstrations: one harness scores
           conversations, another runs whole tasks repeatedly against a database snapshot, and
           every scoring set carries prompt-injection, invented-number and cross-customer cases.
-          I score on questions actually answered, not questions kept away from support — the
-          second rewards an assistant that stonewalls.</p>
-          <ul class="outcome">
-            <li>A seller's API key stays in their browser and never reaches the server</li>
-            <li><span class="n">10.0</span> and <span class="n">9.5</span> across 44 scored cases on two models</li>
-            <li>Spend attributes to the request that caused it, not to the service</li>
-          </ul>
+          I score on questions actually answered, not questions kept away from support &mdash;
+          the second rewards an assistant that stonewalls.</p>
         </div>
+        <div class="case-figs">
+          <div><b>210</b><span>files across capability, proposal, protocol and memory</span></div>
+          <div><b>129</b><span>tests covering the agent surface</span></div>
+          <div><b>10.0 / 9.5</b><span>across 44 scored cases on two models</span></div>
+        </div>
+        <footer class="case-foot">
+          <p class="case-stack">Model Context Protocol · PHP · TypeScript · multi-provider</p>
+        </footer>
       </article>
 
       <article class="case r" data-track="ai product">
-        <div class="case-meta">
-          <p class="case-k">CargoSense</p>
-          <dl>
-            <div><dt>Scope</dt><dd><b>Team of four.</b> Mine: product scoping and architecture, auth, multi-tenant isolation, deployment</dd></div>
-            <div><dt>Result</dt><dd>2nd place, AtomCamp Agentic AI Hackathon</dd></div>
-            <div><dt>Stack</dt><dd>Python · FastAPI · ChromaDB · PostgreSQL · Cloud Run</dd></div>
-          </dl>
-        </div>
+        <header class="case-top">
+          <div>
+            <p class="case-k">CargoSense</p>
+            <p class="case-sub"><b>Team of four.</b> Mine: product scoping and architecture, auth, multi-tenant isolation, deployment</p>
+          </div>
+          <p class="case-tags">AI &amp; agents · Product</p>
+        </header>
         <div class="case-body">
           <h3>Choosing what the product would not do, and shipping because of it</h3>
-          <p>A compliance and risk product for Pakistan's importers. Shipment tracking was the
-          obvious feature and I ruled it out: tracking only works if you already handle the
+          <p>A compliance and risk product for Pakistan&rsquo;s importers. Shipment tracking was
+          the obvious feature and I ruled it out: tracking only works if you already handle the
           booking, which makes it an adoption problem no small team wins. Compliance is a
-          reasoning problem over rules and documents — it needs no cooperation from anyone else
-          and no hardware. We built that instead, and wrote the excluded scope down:
-          <span class="n">8</span> problems solved, <span class="n">4</span> partly,
-          <span class="n">9</span> deliberately out.</p>
-          <p>The retrieval pipeline is hand-built — PDF and OCR parsing for scanned customs
-          documents, chunking, embeddings and a vector store over a nine-document corpus —
+          reasoning problem over rules and documents &mdash; it needs no cooperation from anyone
+          else and no hardware.</p>
+          <p>The retrieval pipeline is hand-built &mdash; PDF and OCR parsing for scanned customs
+          documents, chunking, embeddings and a vector store over a nine-document corpus &mdash;
           behind four agents and a router. Country rules stay out of the engine, so a second
           country is a configuration file rather than a code change.</p>
-          <ul class="outcome">
-            <li>Five risk types, each monitored differently; one deliberately raises no alerts</li>
-            <li>Kept building it after the deadline</li>
-          </ul>
         </div>
+        <div class="case-figs">
+          <div><b>2nd</b><span>place, AtomCamp Agentic AI Hackathon</span></div>
+          <div><b>8 / 4 / 9</b><span>problems solved, partly solved, deliberately excluded</span></div>
+          <div><b>5</b><span>risk types, each monitored differently</span></div>
+        </div>
+        <footer class="case-foot">
+          <p class="case-stack">Python · FastAPI · ChromaDB · PostgreSQL · Cloud Run</p>
+        </footer>
       </article>
 
       <article class="case r" data-track="ai">
-        <div class="case-meta">
-          <p class="case-k">autonomous-sre-agent</p>
-          <dl>
-            <div><dt>Scope</dt><dd>Sole author</dd></div>
-            <div><dt>Stack</dt><dd>TypeScript · Prometheus · Loki · MongoDB · Socket.io</dd></div>
-            <div><dt>Links</dt><dd><a href="https://github.com/IhsanKhann/autonomous-sre-agent">Source</a></dd></div>
-          </dl>
-        </div>
+        <header class="case-top">
+          <div>
+            <p class="case-k">autonomous-sre-agent</p>
+            <p class="case-sub">Sole author</p>
+          </div>
+          <p class="case-tags">AI &amp; agents</p>
+        </header>
         <div class="case-body">
           <h3>An agent near production that cannot author a command</h3>
           <p>A daemon that collects telemetry from four sources, judges anomalies against both
           fixed thresholds and learned baselines, and advances an incident lifecycle rather than
           inventing one. Triage goes to a fast model for latency; code patches go to a stronger
-          one. Two providers and two failure modes, accepted rather than paying frontier latency
-          on every alert.</p>
+          one &mdash; two providers and two failure modes, accepted rather than paying frontier
+          latency on every alert.</p>
           <p>The safety boundary is the design: recovery runs only scripts from a pre-vetted
           allowlist, so the agent can propose a fix and cannot compose an arbitrary command. An
           agent this close to production should be <em>unable</em> to do the wrong thing, not
           merely discouraged from it.</p>
-          <ul class="outcome">
-            <li>Reports over a live dashboard and accepts commands back</li>
-            <li>Runs on its own instance, separate from what it watches</li>
-          </ul>
         </div>
+        <div class="case-figs">
+          <div><b>4</b><span>telemetry sources, one incident lifecycle</span></div>
+          <div><b>2</b><span>models, chosen per job rather than per deployment</span></div>
+        </div>
+        <footer class="case-foot">
+          <p class="case-stack">TypeScript · Prometheus · Loki · MongoDB · Socket.io</p>
+          <p class="case-links">
+            <a href="https://github.com/IhsanKhann/autonomous-sre-agent">Source</a>
+          </p>
+        </footer>
       </article>
+
     </div>
 
     <div class="also r">

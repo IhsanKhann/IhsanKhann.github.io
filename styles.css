@@ -268,37 +268,94 @@ h2 .num { font-family: var(--mono); font-size: 12px; font-weight: 500; color: va
 .filters button.on { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
 .filter-count { font-family: var(--mono); font-size: 11px; color: var(--ink-3); margin: 0 0 24px; min-height: 1.2em; }
 
-/* ── case studies ─────────────────────────────────────────────────── */
-.cases { display: grid; gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 7px; overflow: hidden; }
-.case { display: grid; grid-template-columns: 252px minmax(0, 1fr); background: var(--surface); }
+/* ── case studies: separate cards, each with a header strip, a figure
+      row and a footer. Hover lifts a little so they read as objects. ─── */
+.cases { display: grid; gap: 18px; }
+
+.case {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 9px;
+  overflow: hidden;
+  min-width: 0;
+  transition: border-color .22s ease, box-shadow .22s ease, transform .22s ease;
+}
+.case:hover {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--rule));
+  box-shadow: 0 1px 2px #0e162008, 0 10px 26px -12px #0e162022;
+  transform: translateY(-2px);
+}
+:root[data-theme="dark"] .case:hover,
+:root:not([data-theme="light"]) .case:hover { box-shadow: 0 1px 2px #0000004d, 0 12px 30px -14px #00000080; }
 .case[hidden] { display: none; }
-.case-meta { padding: 24px 22px; border-right: 1px solid var(--rule-soft); background: var(--sunk); min-width: 0; }
+
+/* header strip */
+.case-top {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 18px; flex-wrap: wrap;
+  padding: 17px 22px 15px;
+  background: var(--sunk);
+  border-bottom: 1px solid var(--rule-soft);
+}
+.case-top > div { min-width: 0; }
 .case-k {
-  font-family: var(--mono); font-size: 13px; font-weight: 600; color: var(--accent-ink);
-  margin: 0 0 15px; word-break: break-word; max-width: none;
+  font-family: var(--mono); font-size: 14.5px; font-weight: 600; letter-spacing: -.015em;
+  color: var(--accent-ink); margin: 0 0 4px; max-width: none; word-break: break-word;
 }
-.case-meta dl { margin: 0; display: grid; gap: 13px; }
-.case-meta dt {
-  font-family: var(--sans); font-size: 9px; font-weight: 700; letter-spacing: .13em;
-  text-transform: uppercase; color: var(--ink-3); margin-bottom: 3px;
+.case-sub {
+  font-family: var(--sans); font-size: 12.5px; line-height: 1.45; color: var(--ink-3);
+  margin: 0; max-width: 54ch;
 }
-.case-meta dd { margin: 0; font-family: var(--sans); font-size: 12.5px; line-height: 1.45; color: var(--ink-2); }
-.case-meta dd b { color: var(--ink); font-weight: 600; }
-.case-body { padding: 24px 26px; min-width: 0; }
+.case-sub b { color: var(--ink-2); font-weight: 600; }
+.case-tags {
+  font-family: var(--sans); font-size: 9.5px; font-weight: 700; letter-spacing: .13em;
+  text-transform: uppercase; color: var(--ink-3); margin: 3px 0 0; max-width: none;
+  white-space: nowrap; flex: none;
+}
+
+/* body */
+.case-body { padding: 20px 22px 4px; min-width: 0; }
 .case-body h3 {
-  font-family: var(--sans); font-size: 19.5px; font-weight: 600; letter-spacing: -.018em;
-  line-height: 1.25; margin: 0 0 13px; max-width: 42ch; text-wrap: balance;
+  font-family: var(--sans); font-size: 20px; font-weight: 600; letter-spacing: -.019em;
+  line-height: 1.24; margin: 0 0 12px; max-width: 42ch; text-wrap: balance;
 }
 .case-body p { font-size: 15.5px; color: var(--ink-2); }
-.outcome { list-style: none; margin: 18px 0 0; padding: 15px 0 0; border-top: 1px solid var(--rule-soft); display: grid; gap: 7px; }
-.outcome li {
-  font-family: var(--sans); font-size: 13.5px; line-height: 1.45; color: var(--ink);
-  padding-left: 16px; position: relative; min-width: 0;
+
+/* key figures */
+.case-figs {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 1px; background: var(--rule-soft);
+  margin: 16px 22px 0; border: 1px solid var(--rule-soft); border-radius: 6px; overflow: hidden;
 }
-.outcome li::before {
-  content: ""; position: absolute; left: 0; top: .62em;
-  width: 6px; height: 6px; border-radius: 1px; background: var(--accent);
+.case-figs > div { background: var(--paper); padding: 12px 14px; min-width: 0; }
+.case-figs b {
+  display: block; font-family: var(--mono); font-variant-numeric: tabular-nums;
+  font-size: 19px; font-weight: 600; line-height: 1.1; color: var(--accent-ink);
+  letter-spacing: -.02em; margin-bottom: 5px;
 }
+.case-figs span {
+  display: block; font-family: var(--sans); font-size: 12px; line-height: 1.38; color: var(--ink-3);
+}
+
+/* footer */
+.case-foot {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 14px 22px; flex-wrap: wrap;
+  margin-top: 18px; padding: 13px 22px; border-top: 1px solid var(--rule-soft);
+}
+.case-stack {
+  font-family: var(--mono); font-size: 11px; line-height: 1.6; color: var(--ink-3);
+  margin: 0; max-width: 62ch; min-width: 0;
+}
+.case-links { display: flex; gap: 7px; margin: 0; max-width: none; flex: none; }
+.case-links a {
+  font-family: var(--sans); font-size: 11.5px; font-weight: 600; text-decoration: none;
+  padding: 5px 12px; border-radius: 4px; white-space: nowrap;
+  background: var(--accent-bg); color: var(--accent-ink);
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  transition: background .18s, color .18s, border-color .18s;
+}
+.case-links a:hover { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
 
 /* ── also ─────────────────────────────────────────────────────────── */
 .also { margin-top: 32px; }
@@ -358,10 +415,11 @@ html.js-reveal .r.in {
 
 /* ── narrow ───────────────────────────────────────────────────────── */
 @media (max-width: 860px) {
-  .case { grid-template-columns: minmax(0, 1fr); }
-  .case-meta { border-right: 0; border-bottom: 1px solid var(--rule-soft); padding: 18px 18px 16px; }
-  .case-meta dl { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px 20px; }
-  .case-body { padding: 20px 18px; }
+  .case-top { padding: 15px 17px 13px; }
+  .case-tags { white-space: normal; }
+  .case-body { padding: 18px 17px 2px; }
+  .case-figs { margin: 14px 17px 0; }
+  .case-foot { padding: 12px 17px; }
   .hero { min-height: auto; }
   .hero-inner { padding-block: 40px 44px; }
   .facts li, .facts li + li { border-left: 0; padding: 18px 0; }
