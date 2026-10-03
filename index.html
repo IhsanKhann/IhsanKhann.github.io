@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Muhammad Ihsan Khan — Platform &amp; Agent Engineering</title>
+<meta name="description" content="I build agent-operable software: platforms that expose one declared tool surface, so a person and an agent operate the same system — and the agent can propose but never write.">
+<meta name="author" content="Muhammad Ihsan Khan">
+<meta name="theme-color" content="#eef1f4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0c1218" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://ihsankhann.github.io/">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ihsankhann.github.io/">
+<meta property="og:title" content="Muhammad Ihsan Khan — Platform &amp; Agent Engineering">
+<meta property="og:description" content="Five case studies, each with the trade-off stated. Platform architecture, double-entry ledgers, and agent-operable software.">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230d6e7a'/%3E%3Cpath d='M8 16h16M16 8v16' stroke='%23eef1f4' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#work">Skip to the work</a>
+<div class="progress" id="progress" aria-hidden="true"><span></span></div>
+
+<header class="masthead" id="masthead">
+  <div class="wrap mast-inner">
+    <a class="ident" href="#top"><span class="dot" aria-hidden="true"></span>Muhammad Ihsan Khan</a>
+    <nav aria-label="Sections" id="nav">
+      <a href="#decisions" data-to="decisions">Decisions</a>
+      <a href="#work" data-to="work">Work</a>
+      <a href="#how" data-to="how">Method</a>
+      <a href="#contact" data-to="contact">Contact</a>
+      <button id="theme" type="button" class="theme-btn" aria-label="Switch colour theme">
+        <span class="theme-ico" aria-hidden="true"></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ─── hero ─────────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="grid-bg" aria-hidden="true"></div>
+    <div class="wrap hero-inner">
+      <p class="eyebrow r" data-r="1">Platform &amp; backend engineering · Peshawar, Pakistan</p>
+      <h1 class="r" data-r="2">I build <em>agent-operable</em> software.</h1>
+      <p class="lede r" data-r="3">
+        Platforms that expose one declared tool surface, so a person and an agent operate the
+        same system — and the agent can <strong>propose</strong> but never <strong>write</strong>.
+      </p>
+
+      <!-- the interactive part: boundaries, which is the actual subject -->
+      <div class="boundary r" data-r="4">
+        <p class="b-label">Five products, one spine. Choose one to read its boundary.</p>
+        <div class="b-nodes" role="tablist" aria-label="Products">
+          <button role="tab" type="button" data-b="spine" class="on" aria-selected="true">The spine</button>
+          <button role="tab" type="button" data-b="market" aria-selected="false">Marketplace</button>
+          <button role="tab" type="button" data-b="erp" aria-selected="false">ERP</button>
+          <button role="tab" type="button" data-b="console" aria-selected="false">Console engine</button>
+          <button role="tab" type="button" data-b="msg" aria-selected="false">Messaging</button>
+          <button role="tab" type="button" data-b="track" aria-selected="false">Tracking</button>
+        </div>
+        <div class="b-panel" id="bpanel" role="tabpanel" aria-live="polite">
+          <p class="b-title">One party identity · one event stream · one set of financial facts</p>
+          <p class="b-text">No product is a module of another. They compose so a single
+          organisation can run its commerce and its operations on the same spine, and the
+          marketplace is tenant&nbsp;#1 of the ERP — onboarding through the same public path any
+          other company would use.</p>
+        </div>
+      </div>
+
+      <a class="cue r" data-r="5" href="#decisions">
+        <span>Four decisions, and what each one cost</span>
+        <span class="cue-arrow" aria-hidden="true"></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ─── facts band ───────────────────────────────────────────────── -->
+  <section class="band">
+    <div class="wrap">
+      <ul class="facts">
+        <li class="r"><b>2nd place</b><span>AtomCamp Agentic AI Hackathon, May 2026 — national round in progress</span></li>
+        <li class="r"><b>14 months</b><span>Designing and building a five-product commerce and ERP platform</span></li>
+        <li class="r"><b>5th semester</b><span>BS Computer Science, Institute of Management Sciences, Peshawar</span></li>
+        <li class="r"><b>3 public repos</b><span>A data-import engine, a LangGraph agent pipeline, an autonomous SRE daemon</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ─── decisions ────────────────────────────────────────────────── -->
+  <section id="decisions" class="wrap">
+    <div class="sec-head r">
+      <h2><span class="num">01</span> Selected decisions</h2>
+      <p class="sec-note">Each names what I rejected and what it cost. A decision with no
+      stated cost was not a decision.</p>
+    </div>
+
+    <ol class="decisions">
+      <li class="r">
+        <h3>Prevented a duplicate accounting system before it shipped</h3>
+        <p>A second double-entry ledger was scheduled for the marketplace. Its refund rule
+        contradicted the one already in production, so I removed the design rather than
+        reconcile two ledgers, and added a test that fails the build if the routes return.</p>
+        <dl>
+          <div><dt>Rejected</dt><dd>Reconciling two ledgers with contradicting buyer policies</dd></div>
+          <div><dt>Accepted cost</dt><dd>One service can now only estimate figures, never own them</dd></div>
+        </dl>
+      </li>
+      <li class="r">
+        <h3>Stopped a database change that would have slowed every write</h3>
+        <p>Asked to add two voting members for high availability, I measured the real latency
+        between the two data centres at <span class="n">25&nbsp;ms</span> — not the 35&nbsp;ms
+        the plan assumed — and found the consequence no configuration diff would show: majority
+        acknowledgement is one member at one, two at three, so an unchanged write concern
+        silently begins requiring a cross-datacentre round trip on every write. A partition
+        would also have taken a healthy node read-only.</p>
+        <dl>
+          <div><dt>Rejected</dt><dd>The high-availability plan as written</dd></div>
+          <div><dt>Accepted cost</dt><dd>The platform stays single-homed until the topology changes</dd></div>
+        </dl>
+      </li>
+      <li class="r">
+        <h3>Made it impossible for an agent to change data on its own</h3>
+        <p>Every change an agent produces is a proposal a person reviews and approves, applied
+        through ten domain handlers behind a commit guard. A test fails the build if any agent
+        path writes directly. External agents get the same tools and the same server checks as
+        the in-app assistant — never more.</p>
+        <dl>
+          <div><dt>Rejected</dt><dd>A separate, more capable write API for agents</dd></div>
+          <div><dt>Accepted cost</dt><dd>A slower loop, and an approval queue somebody has to work</dd></div>
+        </dl>
+      </li>
+      <li class="r">
+        <h3>Seeded no statutory payroll rather than plausible defaults</h3>
+        <p>A provisioning path was issuing one country's tax deductions to companies that had
+        selected a different jurisdiction, and a second activation path kept its own copy of the
+        defaults. I merged both into one module and chose to seed nothing: a wrong deduction
+        takes real money from a salary silently, while a blank field gets noticed and corrected
+        before the first payroll run.</p>
+        <dl>
+          <div><dt>Rejected</dt><dd>A generic default deduction set for unknown jurisdictions</dd></div>
+          <div><dt>Accepted cost</dt><dd>Payroll cannot run until an operator configures it</dd></div>
+        </dl>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ─── work ─────────────────────────────────────────────────────── -->
+  <section id="work" class="wrap">
+    <div class="sec-head r">
+      <h2><span class="num">02</span> Work</h2>
+      <p class="sec-note">Five projects, with my own scope stated on each.</p>
+    </div>
+
+    <div class="filters r" role="group" aria-label="Filter work by discipline">
+      <button type="button" data-filter="all" class="on" aria-pressed="true">All</button>
+      <button type="button" data-filter="platform" aria-pressed="false">Platform</button>
+      <button type="button" data-filter="ai" aria-pressed="false">AI &amp; agents</button>
+      <button type="button" data-filter="product" aria-pressed="false">Product</button>
+    </div>
+    <p class="filter-count" id="count" aria-live="polite"></p>
+
+    <div class="cases">
+      <article class="case r" data-track="platform ai product">
+        <div class="case-meta">
+          <p class="case-k">OfferBerries</p>
+          <dl>
+            <div><dt>Scope</dt><dd>Architecture and build, sole engineer</dd></div>
+            <div><dt>Period</dt><dd>Aug 2025 — present</dd></div>
+            <div><dt>Stack</dt><dd>Laravel · Node · React · MySQL · MongoDB · Redis · Docker</dd></div>
+          </dl>
+        </div>
+        <div class="case-body">
+          <h3>A platform of five separately sellable products</h3>
+          <p>A multi-vendor marketplace, a multi-tenant ERP, a config-driven console engine, a
+          messaging service and shipment tracking. No product is a module of another; they
+          compose so one organisation runs its commerce and its operations on the same party
+          identity, event stream and financial facts.</p>
+          <p>The interesting problem was never a feature. It was where the boundary goes — what
+          is a product, what is a shared primitive, and what each service may assume about the
+          others. So the boundary is a test, not a convention: the dependency direction and the
+          tenant seam are asserted by suites that walk the real router, including roughly
+          <span class="n">48</span> that prove one customer's data cannot be read by another.</p>
+          <ul class="outcome">
+            <li><span class="n">36</span> engines over <span class="n">16</span> shared kernel namespaces</li>
+            <li><span class="n">244</span> tables · <span class="n">66</span> declared integration events</li>
+            <li>Load tested at <span class="n">300</span> concurrent users with zero HTTP errors</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="case r" data-track="platform">
+        <div class="case-meta">
+          <p class="case-k">universal-data-onboarder</p>
+          <dl>
+            <div><dt>Scope</dt><dd>Sole author · MIT licensed</dd></div>
+            <div><dt>Stack</dt><dd>Node · Express · MongoDB · BullMQ · React · Cloud Run</dd></div>
+            <div><dt>Links</dt><dd><a href="https://github.com/IhsanKhann/universal-data-onboarder">Source</a> · <a href="https://ihsankhann.github.io/universal-data-onboarder/">Docs</a></dd></div>
+          </dl>
+        </div>
+        <div class="case-body">
+          <h3>Getting a customer's data out of the system they are leaving</h3>
+          <p>&ldquo;Can you get our data in&rdquo; decides more enterprise deals than any feature, so
+          the onboarding pipeline became its own product: parse, map, validate, guardrail,
+          commit — for CSV, JSON, XLSX and raw SQL dumps.</p>
+          <p>Every external dependency is an injected adapter, so the same engine runs on
+          MongoDB or SQLite, a cloud queue or memory, local disk or object storage, single- or
+          multi-tenant, with no change to the pipeline. Files are read as a stream, so memory
+          use follows row width rather than file size — a 2&nbsp;GB upload costs no more memory
+          than a small one. Commits deduplicate on a natural key and resume where they stopped.</p>
+          <ul class="outcome">
+            <li>Extracted from the platform, then adopted back by it as a dependency</li>
+            <li>Published standalone with its own documentation site</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="case r" data-track="ai platform">
+        <div class="case-meta">
+          <p class="case-k">Agent layer</p>
+          <dl>
+            <div><dt>Scope</dt><dd>Design and build, sole engineer</dd></div>
+            <div><dt>Stack</dt><dd>Model Context Protocol · PHP · TypeScript · multi-provider</dd></div>
+            <div><dt>Size</dt><dd>~210 files · 129 tests</dd></div>
+          </dl>
+        </div>
+        <div class="case-body">
+          <h3>One tool surface, operated by a person or an agent</h3>
+          <p>An MCP server built from the protocol up — envelope, dispatcher, tool generator,
+          tool surface, commit guard. Pages declare what they show and what they let you do,
+          once, and both the in-app assistant and an external agent read that same declaration.
+          Agents never click screen elements; they call tools that were declared in advance.</p>
+          <p>Releases are gated on measurement rather than demonstrations: one harness scores
+          conversations, another runs whole tasks repeatedly against a database snapshot, and
+          every scoring set carries prompt-injection, invented-number and cross-customer cases.
+          I score on questions actually answered, not questions kept away from support — the
+          second rewards an assistant that stonewalls.</p>
+          <ul class="outcome">
+            <li>A seller's API key stays in their browser and never reaches the server</li>
+            <li><span class="n">10.0</span> and <span class="n">9.5</span> across 44 scored cases on two models</li>
+            <li>Spend attributes to the request that caused it, not to the service</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="case r" data-track="ai product">
+        <div class="case-meta">
+          <p class="case-k">CargoSense</p>
+          <dl>
+            <div><dt>Scope</dt><dd><b>Team of four.</b> Mine: product scoping and architecture, auth, multi-tenant isolation, deployment</dd></div>
+            <div><dt>Result</dt><dd>2nd place, AtomCamp Agentic AI Hackathon</dd></div>
+            <div><dt>Stack</dt><dd>Python · FastAPI · ChromaDB · PostgreSQL · Cloud Run</dd></div>
+          </dl>
+        </div>
+        <div class="case-body">
+          <h3>Choosing what the product would not do, and shipping because of it</h3>
+          <p>A compliance and risk product for Pakistan's importers. Shipment tracking was the
+          obvious feature and I ruled it out: tracking only works if you already handle the
+          booking, which makes it an adoption problem no small team wins. Compliance is a
+          reasoning problem over rules and documents — it needs no cooperation from anyone else
+          and no hardware. We built that instead, and wrote the excluded scope down:
+          <span class="n">8</span> problems solved, <span class="n">4</span> partly,
+          <span class="n">9</span> deliberately out.</p>
+          <p>The retrieval pipeline is hand-built — PDF and OCR parsing for scanned customs
+          documents, chunking, embeddings and a vector store over a nine-document corpus —
+          behind four agents and a router. Country rules stay out of the engine, so a second
+          country is a configuration file rather than a code change.</p>
+          <ul class="outcome">
+            <li>Five risk types, each monitored differently; one deliberately raises no alerts</li>
+            <li>Kept building it after the deadline</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="case r" data-track="ai">
+        <div class="case-meta">
+          <p class="case-k">autonomous-sre-agent</p>
+          <dl>
+            <div><dt>Scope</dt><dd>Sole author</dd></div>
+            <div><dt>Stack</dt><dd>TypeScript · Prometheus · Loki · MongoDB · Socket.io</dd></div>
+            <div><dt>Links</dt><dd><a href="https://github.com/IhsanKhann/autonomous-sre-agent">Source</a></dd></div>
+          </dl>
+        </div>
+        <div class="case-body">
+          <h3>An agent near production that cannot author a command</h3>
+          <p>A daemon that collects telemetry from four sources, judges anomalies against both
+          fixed thresholds and learned baselines, and advances an incident lifecycle rather than
+          inventing one. Triage goes to a fast model for latency; code patches go to a stronger
+          one. Two providers and two failure modes, accepted rather than paying frontier latency
+          on every alert.</p>
+          <p>The safety boundary is the design: recovery runs only scripts from a pre-vetted
+          allowlist, so the agent can propose a fix and cannot compose an arbitrary command. An
+          agent this close to production should be <em>unable</em> to do the wrong thing, not
+          merely discouraged from it.</p>
+          <ul class="outcome">
+            <li>Reports over a live dashboard and accepts commands back</li>
+            <li>Runs on its own instance, separate from what it watches</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+
+    <div class="also r">
+      <h3>Also</h3>
+      <ul>
+        <li><a href="https://github.com/IhsanKhann/Constraint-Aware-Reinforcement-Learning-Framework">Constraint-aware reinforcement learning</a>
+          — spacecraft attitude control compared across PID, standard RL and a reward-shaped
+          variant, judged on actuator smoothness and control energy rather than tracking error
+          alone. Reproducible from one command.</li>
+        <li><a href="https://github.com/IhsanKhann/MockServerOB">MockServerOB</a>
+          — a fault-injecting mock of a partner API, with configurable latency and error rates.
+          Its own control endpoints are exempt from the faults, so a chaos run stays steerable.</li>
+        <li><a href="https://github.com/IhsanKhann/langgraph-marketing-agent">langgraph-marketing-agent</a>
+          — a multi-agent content pipeline as a state machine, every tool call over MCP, each
+          carrying a run identifier so cost is attributable per run.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ─── method ───────────────────────────────────────────────────── -->
+  <section id="how" class="wrap">
+    <div class="sec-head r"><h2><span class="num">03</span> How I work</h2></div>
+    <div class="principles">
+      <div class="r">
+        <h3>A rule that isn't a test is a preference</h3>
+        <p>The dependency direction, the tenant boundary and the vocabulary each service may use
+        are asserted by suites that read the running application. Adding a legitimate exception
+        means editing a test on purpose.</p>
+      </div>
+      <div class="r">
+        <h3>A measurement is code, and it can be wrong</h3>
+        <p>An internal audit I ran produced six confident figures that were wrong because the
+        predicate asked a slightly different question. Now every reported number carries a
+        confidence class and a date, and an aggregate is not believed until three named
+        instances have been read by hand.</p>
+      </div>
+      <div class="r">
+        <h3>I would rather kill a plan than ship it</h3>
+        <p>Twice this year the useful output was a measurement that stopped work: a replica-set
+        expansion that would have re-priced every write, and a second ledger that would have
+        contradicted the first. Both were reported instead of built.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── contact ──────────────────────────────────────────────────── -->
+  <section id="contact" class="wrap contact">
+    <div class="sec-head r">
+      <h2><span class="num">04</span> Contact</h2>
+      <p class="sec-note">Open to backend, platform and agent-engineering work, remote or in Peshawar.</p>
+    </div>
+    <div class="contact-grid r">
+      <div class="contact-row">
+        <span class="contact-l">Email</span>
+        <code id="email">designwithIhsan@gmail.com</code>
+        <button type="button" id="copy" class="copy-btn">Copy</button>
+      </div>
+      <div class="contact-row">
+        <span class="contact-l">GitHub</span>
+        <a href="https://github.com/IhsanKhann">github.com/IhsanKhann</a>
+      </div>
+      <div class="contact-row">
+        <span class="contact-l">LinkedIn</span>
+        <a href="https://www.linkedin.com/in/ihsann-khan/">linkedin.com/in/ihsann-khan</a>
+      </div>
+    </div>
+    <p class="colophon r">
+      Architecture walkthrough or code review available on request — most of the platform work
+      is in private repositories. Design documents from it can be shared.
+    </p>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>Built as three static files — HTML, CSS and 4&nbsp;KB of JavaScript. No framework, no build step.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
