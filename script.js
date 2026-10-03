@@ -64,6 +64,10 @@
         if (el.getBoundingClientRect().top < window.innerHeight) { el.classList.add('in'); io.unobserve(el); }
       });
     });
+    // Failsafe: nothing stays invisible because an observer did not fire.
+    setTimeout(function () {
+      items.forEach(function (el) { el.classList.add('in'); });
+    }, 2500);
   }
 
   /* ── 3. reading progress + sticky header shadow ───────────────────── */

@@ -270,9 +270,11 @@ h2 .num { font-family: var(--mono); font-size: 12px; font-weight: 500; color: va
 
 /* ── case studies: separate cards, each with a header strip, a figure
       row and a footer. Hover lifts a little so they read as objects. ─── */
-.cases { display: grid; gap: 18px; }
+.cases { display: flow-root; }
+.cases > .case + .case { margin-top: 18px; }
 
 .case {
+  display: flow-root;
   background: var(--surface);
   border: 1px solid var(--rule);
   border-radius: 9px;
@@ -406,10 +408,10 @@ h2 .num { font-family: var(--mono); font-size: 12px; font-weight: 500; color: va
 .foot p { font-family: var(--mono); font-size: 11px; color: var(--ink-3); margin: 0; max-width: none; }
 
 /* ── reveal on scroll: enhancement only ───────────────────────────── */
-html.js-reveal .r { opacity: 0; transform: translateY(14px); }
+html.js-reveal .r { opacity: 0; }
 html.js-reveal .r.in {
-  opacity: 1; transform: none;
-  transition: opacity .62s cubic-bezier(.22,.7,.3,1), transform .62s cubic-bezier(.22,.7,.3,1);
+  opacity: 1;
+  transition: opacity .5s ease;
   transition-delay: var(--d, 0ms);
 }
 
